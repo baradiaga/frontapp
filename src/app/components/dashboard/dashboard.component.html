@@ -1,0 +1,32 @@
+<div class="dashboard">
+  <div class="main-menu">
+    <button (click)="toggleSubMenu(1)">Paramétrage</button>
+    <div *ngIf="activeMenu === 1" class="submenu">
+      <button routerLink="/Profilutilisateur">Profil utilisateur</button>
+      <button routerLink="/Modificationmotdepass">Modifier mot de passe</button>
+      <button routerLink="/Modificationprofil">Modifier profil</button>
+    </div>
+
+    <button (click)="toggleSubMenu(2)">Remédiation</button>
+    <div *ngIf="activeMenu === 2" class="submenu">
+      <button routerLink="/matieres">Matières</button>
+      <button routerLink="/score">Test de connaissance</button>
+      <button routerLink="/resultats">Résultats</button>
+    </div>
+
+    <button (click)="toggleSubMenu(3)">Recommandation</button>
+    <div *ngIf="activeMenu === 3" class="submenu">
+      <button routerLink="/Parcourrecommende">Parcours recommandé</button>
+      <button routerLink="/Parcourchoisi">Parcours choisi</button>
+      <button routerLink="/Parcourchoisi">Parcours mixte</button>
+      <button routerLink="/ressources">Ressources pédagogiques</button>
+    </div>
+
+    <button (click)="toggleSubMenu(4)">Apprentissage asynchrone</button>
+    <div *ngIf="activeMenu === 4" class="submenu">
+      <button routerLink="/sequence">Séquences</button>
+      <button routerLink="/activites">Activités</button>
+      <button routerLink="/evaluation">Évaluations</button>
+    </div>
+  </div>
+</div>

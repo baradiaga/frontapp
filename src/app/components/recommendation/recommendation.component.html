@@ -1,0 +1,58 @@
+<h2>votre score  pour le Chapitre {{ chapitreId }} est : </h2>
+
+<div class="container-recommandations">
+  <!-- Section choix manuel -->
+  <section class="manual-selection">
+    <h3>Choix personnel pedagogique :</h3>
+    <form>
+      <ul>
+        <li *ngFor="let ch of tousLesChapitres">
+          <label>
+            <input
+              type="checkbox"
+              [disabled]="choixValide"
+              [checked]="chapitresChoisisManuel.includes(ch.numero)"
+              (change)="toggleChapitreManuel(ch.numero, $event)"
+            />
+            Chapitre {{ ch.numero }} - {{ ch.nom }}
+          </label>
+        </li>
+      </ul>
+    </form>
+    <button
+      (click)="validerChoixManuel()"
+      [disabled]="choixValide || chapitresChoisisManuel.length === 0"
+    >
+      {{
+        choixValide && choixSource === "manuel"
+          ? "Sélection validée"
+          : "Valider la sélection"
+      }}
+    </button>
+  </section>
+
+  <!-- Section recommandation automatique -->
+  <section class="auto-recommendation">
+    <h3>Recommandation automatique du système :</h3>
+    
+    <button (click)="validerChoixAuto()" [disabled]="choixValide">
+      {{
+        choixValide && choixSource === "auto"
+          ? "Recommandation validée"
+          : "Valider la recommandation"
+      }}
+    </button>
+  </section>
+</div>
+
+<div *ngIf="choixValide" class="confirmation-message">
+  <p>
+    Vous avez validé la
+    <strong>{{
+      choixSource === "manuel"
+        ? "sélection manuelle"
+        : "recommandation automatique"
+    }}</strong
+    >.
+  </p>
+</div>

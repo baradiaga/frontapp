@@ -1,0 +1,30 @@
+<div class="syllabus-container">
+  <h2>Syllabus : {{ slug }}</h2>
+
+  <table class="syllabus-table">
+    <thead>
+      <tr>
+        <th>Chapitre</th>
+        <th>Nom</th>
+        <th>Test</th>
+        <th>Résultat</th>
+        <th>Catégorie</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let chapitre of chapitres">
+        <td>{{ chapitre.numero }}</td>
+        <td>{{ chapitre.nom }}</td>
+        <td>
+          <button (click)="lancerTest(chapitre)">Faire le test</button>
+        </td>
+        <td>{{ chapitre.resultat ?? 'Non évalué' }}</td>
+        <td>{{ chapitre.categorie }}</td>
+        <td>
+          <button (click)="modifierChapitre(chapitre)">...</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

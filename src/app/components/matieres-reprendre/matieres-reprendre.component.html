@@ -1,0 +1,42 @@
+<div class="matieres-container">
+  <div class="search-container">
+  <input
+    type="text"
+    placeholder="Rechercher une matière..."
+     />
+
+  <ul>
+    <li *ngFor="let matiere of filteredMatieres">
+      {{ matiere.nom }}
+    </li>
+  </ul>
+</div>
+
+  <h2>Matières à Reprendre</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>UE</th>
+        <th>Ordre</th>
+        <th>EC</th>
+        <th>Coefficient</th>
+        <th>Syllabus</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let matiere of matieres">
+        <td>{{ matiere.nom }}</td>
+        <td>{{ matiere.ordre }}</td>
+        <td>{{ matiere.ec }}</td>
+        <td>{{ matiere.coefficient }}</td>
+   <td>
+  <a [routerLink]="['/matieres', matiere.slug]">Voir le syllabus</a>
+</td>
+        <td>{{ matiere.statut }}</td>
+        <td><button>Action</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

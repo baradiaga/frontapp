@@ -1,0 +1,48 @@
+<div class="tests-container">
+  <h2 class="chapitre-titre">Chapitre {{ chapitreId }} - Test QCM</h2>
+
+  <table class="qcm-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Question</th>
+        <th colspan="3">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let q of displayedQuestions">
+        <td>{{ q.id }}</td>
+        <td class="question-text">{{ q.question }}</td>
+        <td *ngFor="let opt of q.options; let i = index">
+          <input 
+            type="radio" 
+            [name]="'question-' + q.id" 
+            [value]="i" 
+            (change)="choisirReponse(q.id, i)" 
+            [checked]="reponses[q.id] === i"
+            id="q{{q.id}}-opt{{i}}"
+          />
+          <label [for]="'q' + q.id + '-opt' + i">{{ opt }}</label>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="buttons">
+    <button (click)="precedent()" [disabled]="page === 1">Précédent</button>
+    <span class="page-info">Page {{ page }} / {{ totalPages }}</span>
+    <button (click)="suivant()" [disabled]="!toutesLesReponsesFournies()">Suivant</button>
+  </div>
+
+  <div class="valider-container" *ngIf="page === totalPages">
+    <button 
+      (click)="validerTest()" 
+      [disabled]="!toutesLesReponsesGlobalesFournies()"
+    >
+      terminer test
+    </button>
+    <p *ngIf="!toutesLesReponsesGlobalesFournies()" class="erreur-message">
+      Veuillez répondre à toutes les questions avant de valider le test.
+    </p>
+  </div>
+</div>
