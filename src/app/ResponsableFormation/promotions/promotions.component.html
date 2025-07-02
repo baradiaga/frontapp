@@ -1,0 +1,7 @@
+<h3>Promotions</h3>
+<input [(ngModel)]="nouvellePromo" placeholder="Nouvelle promotion" />
+<button (click)="ajouterPromo()">Ajouter</button>
+<ul>
+  <li *ngFor="let promo of promotions">{{ promo }}</li>
+</ul>
+

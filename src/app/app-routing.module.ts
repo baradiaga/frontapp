@@ -16,6 +16,11 @@ import { ModificationmotdepassComponent } from './components/modificationmotdepa
 import { ModificationprofilComponent } from './components/modificationprofil/modificationprofil.component';
 import { ParcourrecommendeComponent } from './components/parcourrecommende/parcourrecommende.component';
 import { ParcourchoisiComponent } from './components/parcourchoisi/parcourchoisi.component';
+import { DashboardEnseignantComponent } from './Enseignant/dashboard-enseignant/dashboard-enseignant.component';
+import { EvaluationsComponent } from './Enseignant/evaluations/evaluations.component';
+import { ProfilComponent } from './Enseignant/profil/profil.component';
+import { CoursComponent } from './Enseignant/cours/cours.component';
+import { EtudiantsComponent } from './Enseignant/etudiants/etudiants.component';
 const routes: Routes = [
   {
     path: '',
@@ -43,8 +48,18 @@ const routes: Routes = [
       {path: 'Parcourrecommende', component: ParcourrecommendeComponent},
       {path: 'Parcourchoisi', component: ParcourchoisiComponent},
       { path: '', redirectTo: 'matieres', pathMatch: 'full' },
-      {
-  path: 'recommendation', component: RecommendationComponent}
+      { path: 'recommendation', component: RecommendationComponent},
+       //pour Enseignant
+       
+       { path: 'Enseignant/dashboard-enseignant', component: DashboardEnseignantComponent },
+    { path: 'cours', component: CoursComponent },
+    { path: 'etudiants', component:EtudiantsComponent },
+    { path: 'evaluations', component: EvaluationsComponent },
+    
+    { path: 'enseignant/profil', component: ProfilComponent },
+     { path: '', redirectTo: 'dashboard-enseignant', pathMatch: 'full' },
+   
+  { path: 'enseignant', loadChildren: () => import('./Enseignant/enseignant.module').then(m => m.EnseignantModule) },
 
     ]
   }

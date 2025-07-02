@@ -1,0 +1,6 @@
+<h3>Offres de Formation</h3>
+<input [(ngModel)]="nouvelleOffre" placeholder="Nouvelle offre" />
+<button (click)="ajouterOffre()">Ajouter</button>
+<ul>
+  <li *ngFor="let offre of offres">{{ offre }}</li>
+</ul>

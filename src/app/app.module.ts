@@ -27,6 +27,16 @@ import { SequencesComponent } from './components/sequences/sequences.component';
 import { ActivitesComponent } from './components/activites/activites.component';
 import { EvaluationsComponent } from './components/evaluations/evaluations.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DashboardEnseignantComponent } from './Enseignant/dashboard-enseignant/dashboard-enseignant.component';
+import { EtudiantsComponent } from './Enseignant/etudiants/etudiants.component';
+import { CoursComponent } from './Enseignant/cours/cours.component';
+import { ProfilComponent } from './Enseignant/profil/profil.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ReponsableFormationInterfaceComponent } from './reponsable-formation-interface/reponsable-formation-interface.component';
+import { DashbordComponent } from './ResponsableFormation/dashbord/dashbord.component';
+import { OffreformationComponent } from './ResponsableFormation/offreformation/offreformation.component';
+import { StatistiqueComponent } from './ResponsableFormation/statistique/statistique.component';
+import { PromotionsComponent } from './ResponsableFormation/promotions/promotions.component';
 
 @NgModule({
   declarations: [
@@ -52,11 +62,22 @@ import { ReactiveFormsModule } from '@angular/forms';
     ResourcepedagogiqueComponent,
     SequencesComponent,
     ActivitesComponent,
-    EvaluationsComponent
+    EvaluationsComponent,
+    DashboardEnseignantComponent,
+    EtudiantsComponent,
+    CoursComponent,
+    ProfilComponent,
+    ReponsableFormationInterfaceComponent,
+    DashbordComponent,
+    OffreformationComponent,
+    StatistiqueComponent,
+    PromotionsComponent
     
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, RouterModule],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,0 +1,16 @@
+<h2>Liste des cours</h2>
+
+<!-- Formulaire d'ajout de cours -->
+<div>
+  <input placeholder="Titre du cours" [(ngModel)]="nouveauCours.titre">
+  <input placeholder="Description" [(ngModel)]="nouveauCours.description">
+  <button (click)="ajouterCours()">Ajouter</button>
+</div>
+
+<!-- Liste des cours -->
+<ul>
+  <li *ngFor="let c of cours; index as i">
+    <strong>{{ c.titre }}</strong> - {{ c.description }}
+    <button (click)="supprimerCours(i)">Supprimer</button>
+  </li>
+</ul>
